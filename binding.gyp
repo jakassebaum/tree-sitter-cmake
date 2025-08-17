@@ -6,7 +6,11 @@
         "<!(node -p \"require('node-addon-api').targets\"):node_addon_api_except",
       ],
       "include_dirs": [
+        "<!@(node -p \"require('node-addon-api').include\")",
         "src",
+      ],
+      "defines": [
+        "NAPI_DISABLE_CPP_EXCEPTIONS"
       ],
       "sources": [
         "bindings/node/binding.cc",
